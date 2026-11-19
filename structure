@@ -1,0 +1,37 @@
+feature-adoption-campaign-ab-test/
+├── README.md
+├── requirements.txt
+├── .gitignore
+│
+├── data/
+│   ├── raw/                      # the 5 CSVs (see note below)
+│   ├── processed/                # cleaned outputs (gitignored)
+│   └── generate_synthetic_data.py
+│
+├── docs/
+│   ├── 01_experiment_brief.md    # hypothesis, metrics, guardrails, power calc
+│   ├── 02_data_quality_log.md    # each issue: how detected, how fixed
+│   └── 03_recommendation_memo.md # the stakeholder memo (also export a PDF)
+│
+├── sql/
+│   ├── 01_load_tables.sql
+│   ├── 02_data_quality_checks.sql
+│   ├── 03_cleaning_views.sql
+│   └── 04_funnel_and_cohorts.sql
+│
+├── notebooks/
+│   ├── 01_validation_and_cleaning.ipynb
+│   ├── 02_ab_test_analysis.ipynb
+│   ├── 03_segments_and_novelty.ipynb
+│   └── 04_uplift_model_and_targeting.ipynb
+│
+├── src/
+│   ├── cleaning.py
+│   ├── stats_utils.py            # tests, confidence intervals, SRM check
+│   └── uplift.py
+│
+├── dashboard/
+│   ├── learnloop_dashboard.pbix
+│   └── screenshots/
+│
+└── reports/figures/              # charts used in the README and memo
