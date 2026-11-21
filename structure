@@ -35,3 +35,31 @@ feature-adoption-campaign-ab-test/
 │   └── screenshots/
 │
 └── reports/figures/              # charts used in the README and memo
+
+
+feature-adoption-campaign-ab-test/
+├── README.md
+├── .gitignore
+│
+├── data/
+│   ├── raw/                  # the 5 original CSVs
+│   ├── cleaned/              # analysis_users.csv and other exports from MySQL
+│   └── generate_data.py      # only if you saved the generator script
+│
+├── sql/
+│   ├── 01_create_staging_tables.sql
+│   ├── 02_load_data.sql
+│   ├── 03_validation_checks.sql
+│   ├── 04_cleaning.sql
+│   └── 05_analysis_table_and_funnel.sql
+│
+├── notebooks/
+│   ├── 01_ab_test_analysis.ipynb
+│   └── 02_segments_and_uplift.ipynb
+│
+├── docs/
+│   ├── experiment_brief.md
+│   ├── data_quality_log.md
+│   └── recommendation_memo.md (+ a PDF export)
+│
+└── reports/figures/          # charts used in the README and memo
