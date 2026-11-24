@@ -96,12 +96,6 @@ feature-adoption-campaign-ab-test/
 └── reports/figures/
 ```
 
-## How to reproduce
-
-1. Use MySQL 8.0 or later (window functions are required). Run the scripts in `sql/` in order. Enable `local_infile` for the load step and update the file paths in script 01.
-2. Export `analysis_users` to `data/cleaned/analysis_users.csv`.
-3. Open `notebooks/01_ab_test_analysis_and_segments.ipynb` in Google Colab, upload the CSV and run all cells.
-
 ## Limitations
 
 - Synthetic data: effects were planted, so effect sizes are larger than in typical real-world experiments.
