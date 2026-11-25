@@ -28,7 +28,7 @@ Primary metric: premium subscription within 14 days of assignment. Guardrails: u
 | Refund rate (share of users) | 0.22% | 0.24% (not significant) | 0.70% (+0.49 pp, 95% CI 0.30 to 0.69) |
 | Refunds as share of converters | 4.5% | 3.4% | 9.3% |
 
-![Conversion and guardrails by variant](reports/figures/ab_results.png)
+![Conversion and guardrails by variant]([reports/figures/Conversion and guardrails by variant (95% CI).png](reports/figures/Conversion%20and%20guardrails%20by%20variant%20(95%25%20CI).png))
 
 - Both variants significantly increase conversion (p < 0.001, Bonferroni-adjusted for two comparisons). Arm sizes are balanced (sample ratio mismatch test: p = 0.60).
 - **B vs C directly:** C converts +0.55 pp more than B, but the difference is not significant (95% CI -0.19 to 1.30, p = 0.14). Net of refunds the difference is +0.09 pp (95% CI -0.63 to 0.81, p = 0.81). C's refund rate is +0.47 pp higher than B's (95% CI 0.27 to 0.67, p < 0.001).
@@ -36,7 +36,7 @@ Primary metric: premium subscription within 14 days of assignment. Guardrails: u
 
 ### Segments (exploratory)
 
-![Lift by segment](reports/figures/segment_lift.png)
+![Lift by segment](reports/figures/lift%20vs%20control%2C%20overall%20%26%20by%20segment.png)
 
 Eleven platform x country segments with at least 300 control users were tested for each variant (22 comparisons). After correcting for all 22, **only Variant C on Android in India holds up**: +4.0 pp (95% CI 2.5 to 5.5, adjusted p < 0.001). Android in Indonesia shows about +4 pp for both variants but does not survive the correction (adjusted p = 0.06 to 0.08). Variant C is flat for iOS in the USA (-0.5 pp, not significant).
 
@@ -44,8 +44,8 @@ Eleven platform x country segments with at least 300 control users were tested f
 
 A cross-fitted uplift model (gradient boosting, two-model approach, scikit-learn) **did not reliably identify who responds**. Measured uplift across predicted-uplift quintiles was flat and noisy (B: 2.5, 3.3, 0.2, 1.3, 3.3 pp; C: 2.2, 3.0, 3.6, 2.4, 2.2 pp), and the gain curves stayed close to random targeting.
 
-![Measured uplift by predicted-uplift quintile](reports/figures/uplift_by_quintile.png)
-![Cumulative gain vs random targeting](reports/figures/cumulative_gain.png)
+![Measured uplift by predicted-uplift quintile](reports/figures/Measured%20uplift%20by%20predicted%20uplift.png)
+![Cumulative gain vs random targeting](reports/figures/Cumulative%20gain%20vs%20random%20targeting.png)
 
 A simple rule, Variant C only for Android users in India (4,185 users, 22.1% of the population), gave +4.0 pp uplift and captured 33% of the total incremental conversions, against +2.1 pp and 17% for the model's top 22% of users. Net of refunds the rule still gave +3.4 pp (35% of the benefit vs 24% for the model).
 
@@ -118,12 +118,6 @@ feature-adoption-campaign-ab-test/
 ## Power BI dashboard
 
 **Coming soon.** An interactive dashboard of the results (conversion, guardrails and segment lift by variant) is planned and will be added to `dashboard/` with screenshots.
-
-## How to reproduce
-
-1. Use MySQL 8.0 or later (window functions are required). Run the scripts in `sql/` in order. Enable `local_infile` for the load step and update the file paths in script 01.
-2. Export `analysis_users` to `data/cleaned/analysis_users.csv`.
-3. Open the notebooks in `notebooks/` in Google Colab, upload `analysis_users.csv` and run all cells.
 
 ## Limitations
 
